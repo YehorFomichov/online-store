@@ -1,0 +1,34 @@
+{
+  "men" : {
+    "clothes" : {
+      "Shirts" : "85ef35f8-1e8f-4a2d-8e4b-3df57f06f240",
+      "T-Shirts" : "df045a29-e9de-4e20-b8e6-360cbd1e1f7a",
+      "Vests" : "9a46a6fe-a268-465e-bb0c-94ab54fbfc8c"
+    },
+    "underwear" : {
+      "Hats, caps" : "632d1155-c9d0-482d-9ae6-f62cc1d4fd0e",
+      "Nightwear" : "a56a7b94-ae26-4e81-974c-662a13b6b006",
+      "Shoes" : "6e6632d6-dfa5-43fd-a8d3-2f8d2d98386b",
+      "Underwear" : "0f4c2332-91ed-46a4-8569-73f17394d0a8"
+    }
+  },
+  "woman" : {
+    "clothes" : {
+      "Shirts" : "45b7d116-1842-40ff-9ccf-5e96d6d3b359",
+      "Suits" : "bd17271a-0b3f-43fe-87e9-e9867b90a1d1",
+      "Tops" : "048e2ca2-bd79-4b53-bd72-0feb1895ce40",
+      "Vests" : "74a3b261-df71-4a3f-8aa0-0cc5af077b24"
+    },
+    "shoes" : {
+      "Bags" : "943cddcb-9f79-4396-89a5-f135385d8f9c",
+      "Belts" : "6982367b-a8bc-4450-bdc5-2d48a48c778c",
+      "Jewellery" : "d136ef1b-7f5e-4994-8352-d0943d6f9ae1",
+      "Shoes" : "ceb9ffc9-0011-4050-b61d-442c99240b53"
+    },
+    "underwear" : {
+      "Bras" : "5baf5fcf-9e3e-4e4a-859a-1a9487708258",
+      "Briefs" : "39af5a18-365a-46f8-9c59-3e246f1230fb",
+      "Sets" : "5eb8ea6c-737f-4247-8123-4de66745cf97"
+    }
+  }
+}

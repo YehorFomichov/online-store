@@ -1,0 +1,64 @@
+.articles-block {
+  letter-spacing: 0.15px;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  transition: opacity 200ms ease 0s;
+  pointer-events: none;
+}
+.article {
+  letter-spacing: 0.15px;
+  text-transform: none;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  display: block;
+  width: 100%;
+  margin: 2px;
+  max-width: calc(50% - 4px);
+  flex-basis: calc(50% - 4px);
+}
+.article-card {
+  letter-spacing: 0.15px;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  outline: none;
+  text-decoration: none;
+  -webkit-box-ordinal-group: 2;
+  order: 1;
+  position: relative;
+  width: 100%;
+  padding-top: 133%;
+  overflow: hidden;
+}
+.article-image {
+  letter-spacing: 0.15px;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out 0s;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+}

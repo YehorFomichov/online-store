@@ -1,0 +1,38 @@
+/* variables */
+:root {
+  --primary: #ffc686;
+  --secondary: #0a0b5b;
+}
+/* reset */
+body,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: 0;
+}
+li {
+  list-style-type: none;
+}
+/* base styles */
+body {
+  background: var(--secondary);
+  overflow: hidden;
+}
+/* variables */
+
+/* variables */
+
+/* variables */
+
+/* mobile device */
+@media screen and (min-width: 620px) {
+}
+/* tablet device */
+@media screen and (min-width: 960px) {
+}
+/* desktop device */
+@media screen and (min-width: 1200px) {
+}
