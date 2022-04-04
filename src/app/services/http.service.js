@@ -17,15 +17,26 @@ axios.interceptors.request.use(
     return Promise.reject(error)
   }
 )
+function transformData(data) {
+  return data
+  // return data && !data._id
+  //   ? Object.keys(data).map((key) => ({
+  //       ...data[key]
+  //     }))
+  //   : data
+}
 axios.interceptors.response.use(
   (res) => {
+    if (configFile.isFireBase) {
+      res.data = { content: transformData(res.data) }
+    }
     return res
   },
   (error) => {
     const expectedErrors =
       error.response &&
       error.response.status >= 400 &&
-      error.response.status <= 500
+      error.response.status < 500
     if (!expectedErrors) {
       console.log(error)
       toast.error('Unexpected error')

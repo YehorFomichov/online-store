@@ -1,34 +1,124 @@
 {
-  "men" : {
-    "clothes" : {
-      "Shirts" : "85ef35f8-1e8f-4a2d-8e4b-3df57f06f240",
-      "T-Shirts" : "df045a29-e9de-4e20-b8e6-360cbd1e1f7a",
-      "Vests" : "9a46a6fe-a268-465e-bb0c-94ab54fbfc8c"
+  "men": {
+    "clothes": {
+      "shirts": {
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2401": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2401",
+          "title": "Поло Lacoste DH2050-031 S (T3) Black",
+          "image": "https://content2.rozetka.com.ua/goods/images/big/160850480.jpg",
+          "category": "men/clothes/shirts",
+          "price": "1090",
+          "rating": "4.1"
+        },
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2402": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2402",
+          "title": "Поло Tom Tailor 1016502.ХХ.10",
+          "image": "https://content1.rozetka.com.ua/goods/images/big/246891697.jpg",
+          "category": "men/clothes/shirts",
+          "price": "449",
+          "rating": "4.2"
+        },
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2403": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2403",
+          "title": "Поло Guess M1BP58-K7O61 L Jet Black A996",
+          "image": "https://content2.rozetka.com.ua/goods/images/big/224128326.jpg",
+          "category": "men/clothes/shirts",
+          "price": "449",
+          "rating": "4.0"
+        },
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2404": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2404",
+          "title": "Поло Lacoste DH2050-031 S (T3) Black",
+          "image": "https://content2.rozetka.com.ua/goods/images/big/160850480.jpg",
+          "category": "men/clothes/shirts",
+          "price": "840",
+          "rating": "3.9"
+        },
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2405": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2405",
+          "title": "Поло Tom Tailor 1016502-16340 L Синее",
+          "image": "https://content.rozetka.com.ua/goods/images/big/246891721.jpg",
+          "category": "men/clothes/shirts",
+          "price": "1930",
+          "rating": "4.8"
+        },
+        "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2406": {
+          "_id": "85ef35f8-1e8f-4a2d-8e4b-3df57f06f2406",
+          "title": "Поло Joma Bali II 100748.250 2XL Серое",
+          "image": "https://content.rozetka.com.ua/goods/images/big/258357706.jpg",
+          "category": "men/clothes/shirts",
+          "price": "449",
+          "rating": "4.2"
+        }
+      },
+      "tshirts": {
+        "df045a29-e9de-4e20-b8e6-360cbd1e1f7a1": {
+          "_id": "df045a29-e9de-4e20-b8e6-360cbd1e1f7a1",
+          "title": "Футболка New Balance Ess Stacked Logo MT01575OBR S Индиго",
+          "image": "https://content2.rozetka.com.ua/goods/images/big/225112643.jpg",
+          "category": "men/clothes/tshirts",
+          "price": "449",
+          "rating": "4.0"
+        },
+        "df045a29-e9de-4e20-b8e6-360cbd1e1f7a2": {
+          "_id": "df045a29-e9de-4e20-b8e6-360cbd1e1f7a2",
+          "title": "Футболка New Balance NB Classic Arch MT11985HC S Серая",
+          "image": "https://content.rozetka.com.ua/goods/images/big/226593503.jpg",
+          "category": "men/clothes/tshirts",
+          "price": "0",
+          "rating": "4.15"
+        },
+        "df045a29-e9de-4e20-b8e6-360cbd1e1f7a3": {
+          "_id": "df045a29-e9de-4e20-b8e6-360cbd1e1f7a3",
+          "title": "Поло Tom Tailor 1016502-16340 L Синее",
+          "image": "https://content.rozetka.com.ua/goods/images/big/246891721.jpg",
+          "category": "men/clothes/tshirts",
+          "price": "0",
+          "rating": "3.5"
+        },
+        "df045a29-e9de-4e20-b8e6-360cbd1e1f7a4": {
+          "_id": "df045a29-e9de-4e20-b8e6-360cbd1e1f7a4",
+          "title": "Поло Tom Tailor 1016502-16340 L Синее",
+          "image": "https://content.rozetka.com.ua/goods/images/big/246891721.jpg",
+          "category": "men/clothes/tshirts",
+          "price": "0",
+          "rating": "4.6"
+        },
+        "df045a29-e9de-4e20-b8e6-360cbd1e1f7a5": {
+          "_id": "df045a29-e9de-4e20-b8e6-360cbd1e1f7a5",
+          "title": "Поло Tom Tailor 1016502-16340 L Синее",
+          "image": "https://content.rozetka.com.ua/goods/images/big/246891721.jpg",
+          "category": "men/clothes/tshirts",
+          "price": "0",
+          "rating": "4.8"
+        }
+      },
+      "vests": "9a46a6fe-a268-465e-bb0c-94ab54fbfc8c"
     },
-    "underwear" : {
-      "Hats, caps" : "632d1155-c9d0-482d-9ae6-f62cc1d4fd0e",
-      "Nightwear" : "a56a7b94-ae26-4e81-974c-662a13b6b006",
-      "Shoes" : "6e6632d6-dfa5-43fd-a8d3-2f8d2d98386b",
-      "Underwear" : "0f4c2332-91ed-46a4-8569-73f17394d0a8"
+    "underwear": {
+      "hats": "632d1155-c9d0-482d-9ae6-f62cc1d4fd0e",
+      "nightwear": "a56a7b94-ae26-4e81-974c-662a13b6b006",
+      "shoes": "6e6632d6-dfa5-43fd-a8d3-2f8d2d98386b",
+      "underwear": "0f4c2332-91ed-46a4-8569-73f17394d0a8"
     }
   },
-  "woman" : {
-    "clothes" : {
-      "Shirts" : "45b7d116-1842-40ff-9ccf-5e96d6d3b359",
-      "Suits" : "bd17271a-0b3f-43fe-87e9-e9867b90a1d1",
-      "Tops" : "048e2ca2-bd79-4b53-bd72-0feb1895ce40",
-      "Vests" : "74a3b261-df71-4a3f-8aa0-0cc5af077b24"
+  "woman": {
+    "clothes": {
+      "shirts": "45b7d116-1842-40ff-9ccf-5e96d6d3b359",
+      "suits": "bd17271a-0b3f-43fe-87e9-e9867b90a1d1",
+      "sops": "048e2ca2-bd79-4b53-bd72-0feb1895ce40",
+      "vests": "74a3b261-df71-4a3f-8aa0-0cc5af077b24"
     },
-    "shoes" : {
-      "Bags" : "943cddcb-9f79-4396-89a5-f135385d8f9c",
-      "Belts" : "6982367b-a8bc-4450-bdc5-2d48a48c778c",
-      "Jewellery" : "d136ef1b-7f5e-4994-8352-d0943d6f9ae1",
-      "Shoes" : "ceb9ffc9-0011-4050-b61d-442c99240b53"
+    "shoes": {
+      "Bags": "943cddcb-9f79-4396-89a5-f135385d8f9c",
+      "Belts": "6982367b-a8bc-4450-bdc5-2d48a48c778c",
+      "Jewellery": "d136ef1b-7f5e-4994-8352-d0943d6f9ae1",
+      "Shoes": "ceb9ffc9-0011-4050-b61d-442c99240b53"
     },
-    "underwear" : {
-      "Bras" : "5baf5fcf-9e3e-4e4a-859a-1a9487708258",
-      "Briefs" : "39af5a18-365a-46f8-9c59-3e246f1230fb",
-      "Sets" : "5eb8ea6c-737f-4247-8123-4de66745cf97"
+    "underwear": {
+      "bras": "5baf5fcf-9e3e-4e4a-859a-1a9487708258",
+      "briefs": "39af5a18-365a-46f8-9c59-3e246f1230fb",
+      "sets": "5eb8ea6c-737f-4247-8123-4de66745cf97"
     }
   }
 }

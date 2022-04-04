@@ -16,11 +16,15 @@ const NavBar = () => {
           <div className='d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
             <h5 className='text-white h4'>WOMAN</h5>
             <Divider />
-            <h6 className='text-muted'>
-              <Link to='./products'>CLOTHES</Link>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/women/clothes'>CLOTHES</Link>
             </h6>
-            <h6 className='text-muted'>SHOES AND ACCESSORIES</h6>
-            <h6 className='text-muted'>UNDERWEAR</h6>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/women/shoes'>SHOES</Link>
+            </h6>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/women/bags'>BAGS AND ACCESSORIES</Link>
+            </h6>
             <h5 className='text-white h4'>MEN</h5>
             <Divider />
             <h6 className='text-muted'>CLOTHES</h6>

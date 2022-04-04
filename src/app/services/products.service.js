@@ -1,9 +1,15 @@
 import httpService from './http.service'
-const menEndPoint = 'men/'
+const productsEndPoint = 'products/'
 
 const productsService = {
-  get: async () => {
-    const { data } = await httpService.get(menEndPoint)
+  get: async (sex, category) => {
+    const { data } = await httpService.get(
+      productsEndPoint + `${sex}/${category}/`
+    )
+    return data
+  },
+  fetchAll: async () => {
+    const { data } = await httpService.get(productsEndPoint)
     return data
   }
 }
