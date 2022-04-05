@@ -27,7 +27,6 @@ const AdminForm = () => {
   const calculateCategory = () => {
     if (data.sex === 'men') {
       if (data.category === 'clothes') {
-        console.log('first')
         return [
           { name: 'Shirts', value: 'shirts' },
           { name: 'T-Shirts', value: 'tshirts' },

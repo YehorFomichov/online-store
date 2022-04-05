@@ -27,9 +27,15 @@ const NavBar = () => {
             </h6>
             <h5 className='text-white h4'>MEN</h5>
             <Divider />
-            <h6 className='text-muted'>CLOTHES</h6>
-            <h6 className='text-muted'>SHOES AND ACCESSORIES</h6>
-            <h6 className='text-muted'>UNDERWEAR</h6>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/men/clothes'>CLOTHES</Link>
+            </h6>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/men/shoes'>SHOES</Link>
+            </h6>
+            <h6 className='text-muted' onClick={handleNavbarMove}>
+              <Link to='/products/men/bags'>BAGS AND ACCESSORIES</Link>
+            </h6>
           </div>
         )}
         <div className='container-fluid'>

@@ -66,7 +66,7 @@ const ArticlesList = () => {
                 </div>
                 <div className='row m-2 p-2'>
                   <p>{e.title}</p>
-                  <p>{e.price}</p>
+                  <p className=''>{e.price}</p>
                 </div>
               </div>
             ))}
