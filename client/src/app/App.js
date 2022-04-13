@@ -8,14 +8,7 @@ import ProductsProvider from './hooks/useProducts'
 import Login from './layout/login'
 import Main from './layout/main/main'
 import AdminPanel from './layout/adminPanel'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { loadProducts } from './store/products'
 function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(loadProducts())
-  }, [])
   return (
     <>
       <div className='d-flex flex-column justify-content-between'>

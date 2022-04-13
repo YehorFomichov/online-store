@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import Divider from '../common/divider'
-
+// import './navBar.sass'
 const NavBar = () => {
   const [isNavClosed, setIsNavClosed] = useState(false)
+  // const [linksColor, setLinksColor] = useState('text-muted')
   const history = useHistory()
   const handleNavbarMove = () => {
     setIsNavClosed((prevState) => !prevState)
   }
+  const handleCategoryClick = (path) => {
+    handleNavbarMove()
+    history.push(path)
+  }
+  // const handleChangeClass = () => {
+  //   setLinksColor('text-white')
+  // }
+  // const handleChangeClassBack = () => {
+  //   setLinksColor('text-muted')
+  // }
   return (
     <>
       <nav className='navbar navbar-dark bg-dark'>
@@ -16,25 +26,45 @@ const NavBar = () => {
           <div className='d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
             <h5 className='text-white h4'>WOMAN</h5>
             <Divider />
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/women/clothes'>CLOTHES</Link>
+            <h6
+              className='iitem'
+              // onMouseEnter={handleChangeClass}
+              // onMouseLeave={handleChangeClassBack}
+              onClick={() => handleCategoryClick('/products/women/clothes')}
+            >
+              CLOTHES
             </h6>
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/women/shoes'>SHOES</Link>
+            <h6
+              className='iitem'
+              onClick={() => handleCategoryClick('/products/women/shoes')}
+            >
+              SHOES
             </h6>
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/women/bags'>BAGS AND ACCESSORIES</Link>
+            <h6
+              className='text-muted'
+              onClick={() => handleCategoryClick('/products/women/bags')}
+            >
+              BAGS AND ACCESSORIES
             </h6>
             <h5 className='text-white h4'>MEN</h5>
             <Divider />
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/men/clothes'>CLOTHES</Link>
+            <h6
+              className='text-muted'
+              onClick={() => handleCategoryClick('/products/men/clothes')}
+            >
+              CLOTHES
             </h6>
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/men/shoes'>SHOES</Link>
+            <h6
+              className='text-muted'
+              onClick={() => handleCategoryClick('/products/men/shoes')}
+            >
+              SHOES
             </h6>
-            <h6 className='text-muted' onClick={handleNavbarMove}>
-              <Link to='/products/men/bags'>BAGS AND ACCESSORIES</Link>
+            <h6
+              className='text-muted'
+              onClick={() => handleCategoryClick('/products/men/bags')}
+            >
+              BAGS AND ACCESSORIES
             </h6>
           </div>
         )}

@@ -41,6 +41,7 @@ export const getProductsLoadingStatus = () => (state) =>
 export const getProducts =
   ({ sex, category, type }) =>
   (state) => {
+    if (state.products.isLoading) return []
     if (!type) {
       return _.toArray(state.products.entities[sex][category])
     }

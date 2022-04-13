@@ -1,9 +1,17 @@
 import { nanoid } from 'nanoid'
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getProducts, getProductsLoadingStatus } from '../../../store/products'
+import {
+  getProducts,
+  getProductsLoadingStatus,
+  loadProducts
+} from '../../../store/products'
 const ArticlesList = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(loadProducts())
+  }, [])
   const params = useParams()
   const { sex, category, type } = params
   const [positionState, changePositionState] = useState()
@@ -15,7 +23,6 @@ const ArticlesList = () => {
       arrayToShow.push(products[el][cl])
     })
   })
-
   return (
     <>
       <div className='row'>
@@ -52,7 +59,7 @@ const ArticlesList = () => {
                 className={
                   positionState
                     ? `col-${positionState}`
-                    : 'col-xxl-3 col-lg-4 col-6'
+                    : 'col-xxl-3 col-lg-4 col-sm-6 col-xs-12'
                 }
               >
                 <div
@@ -62,7 +69,10 @@ const ArticlesList = () => {
                     overflow: 'hidden'
                   }}
                 >
-                  <img className='img-fluid m-2 p-2' src={e.image}></img>
+                  <img
+                    className='img-fluid m-2 p-2 rounded'
+                    src={e.image}
+                  ></img>
                 </div>
                 <div className='row m-2 p-2'>
                   <p>{e.title}</p>
