@@ -9,7 +9,8 @@ module.exports = async () => {
   const product = await Product.find()
   if (product.length !== productsMock.length) {
     console.log(chalk.yellow('creating products'))
-    await createInitialEntity(Product, productsMock)
+    const res = await createInitialEntity(Product, productsMock)
+    console.log(res)
   }
   const category = await Category.find()
   if (category.length !== categoryMock.length) {
