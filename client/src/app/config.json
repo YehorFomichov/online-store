@@ -1,4 +1,4 @@
 {
-  "APIEndPoint": "https://online-store-17ceb-default-rtdb.europe-west1.firebasedatabase.app/",
-  "isFireBase": true
+  "APIEndPoint": "http://localhost:8080/api",
+  "isFireBase": false
 }

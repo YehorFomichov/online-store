@@ -30,7 +30,9 @@ const { productsRequested, productsReceived, productsRequestFailed } =
 export const loadProducts = () => async (dispatch) => {
   dispatch(productsRequested())
   try {
+    console.log('in store')
     const { content } = await productsService.fetchAll()
+    console.log('content', content)
     dispatch(productsReceived(content))
   } catch (error) {
     dispatch(productsRequestFailed(error.message))
@@ -38,6 +40,9 @@ export const loadProducts = () => async (dispatch) => {
 }
 export const getProductsLoadingStatus = () => (state) =>
   state.products.isLoading
+export const getAllProducts = () => (state) => {
+  return state.products.entities
+}
 export const getProducts =
   ({ sex, category, type }) =>
   (state) => {

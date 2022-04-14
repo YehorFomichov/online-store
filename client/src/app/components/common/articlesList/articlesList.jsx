@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {
+  getAllProducts,
   getProducts,
   getProductsLoadingStatus,
   loadProducts
@@ -12,17 +13,19 @@ const ArticlesList = () => {
   useEffect(() => {
     dispatch(loadProducts())
   }, [])
-  const params = useParams()
-  const { sex, category, type } = params
+  // const params = useParams()
+  // const { sex, category, type } = params
   const [positionState, changePositionState] = useState()
   const isLoading = useSelector(getProductsLoadingStatus())
-  const products = useSelector(getProducts({ sex, category }))
+  const allProducts = useSelector(getAllProducts())
+  // console.log(allProducts)
+  // const products = useSelector(getProducts({ sex, category }))
   const arrayToShow = []
-  Object.keys(products).forEach((el) => {
-    Object.keys(products[el]).forEach((cl) => {
-      arrayToShow.push(products[el][cl])
-    })
-  })
+  // Object.keys(products).forEach((el) => {
+  //   Object.keys(products[el]).forEach((cl) => {
+  //     arrayToShow.push(products[el][cl])
+  //   })
+  // })
   return (
     <>
       <div className='row'>
