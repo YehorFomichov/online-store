@@ -1,31 +1,27 @@
-import { nanoid } from 'nanoid'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+import ProductCard from '../productCard/productCard'
 import {
-  getAllProducts,
-  getProducts,
   getProductsLoadingStatus,
+  getProuctsByType,
   loadProducts
 } from '../../../store/products'
+
 const ArticlesList = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(loadProducts())
   }, [])
-  // const params = useParams()
-  // const { sex, category, type } = params
+  const params = useParams()
+  const { sex, category, type } = params
   const [positionState, changePositionState] = useState()
   const isLoading = useSelector(getProductsLoadingStatus())
-  const allProducts = useSelector(getAllProducts())
-  // console.log(allProducts)
-  // const products = useSelector(getProducts({ sex, category }))
-  const arrayToShow = []
-  // Object.keys(products).forEach((el) => {
-  //   Object.keys(products[el]).forEach((cl) => {
-  //     arrayToShow.push(products[el][cl])
-  //   })
-  // })
+  const products = useSelector(getProuctsByType(sex, category, type))
+  const handleCardClick = (id) => {
+    history.push(`/product/${id}`)
+  }
   return (
     <>
       <div className='row'>
@@ -56,31 +52,17 @@ const ArticlesList = () => {
       <div className='container-fluid'>
         <div className='row'>
           {!isLoading &&
-            arrayToShow.map((e) => (
+            products.map((e) => (
               <div
-                key={nanoid()}
+                key={e._id}
                 className={
                   positionState
                     ? `col-${positionState}`
                     : 'col-xxl-3 col-lg-4 col-sm-6 col-xs-12'
                 }
+                onClick={() => handleCardClick(e._id)}
               >
-                <div
-                  className='row'
-                  style={{
-                    maxHeight: '480px',
-                    overflow: 'hidden'
-                  }}
-                >
-                  <img
-                    className='img-fluid m-2 p-2 rounded'
-                    src={e.image}
-                  ></img>
-                </div>
-                <div className='row m-2 p-2'>
-                  <p>{e.title}</p>
-                  <p className=''>{e.price}</p>
-                </div>
+                <ProductCard image={e.image} title={e.title} price={e.price} />
               </div>
             ))}
         </div>

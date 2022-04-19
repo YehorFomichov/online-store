@@ -6,16 +6,8 @@ import l1 from '../../assets/mainPage/l1.jpg'
 import l2 from '../../assets/mainPage/l2.jpg'
 import l3 from '../../assets/mainPage/l3.jpg'
 import './main.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllProducts, loadProducts } from '../../store/products'
 
 const Main = () => {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(loadProducts({ sex: 'men', category: 'clothes' }))
-  }, [])
-  // const products = useSelector(getAllProducts())
-  // console.log(products)
   const slides = [img1, img2, img3]
   const altSlides = [l1, l2, l3]
   const [index, setIndex] = useState(0)

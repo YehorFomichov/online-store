@@ -8,6 +8,8 @@ import ProductsProvider from './hooks/useProducts'
 import Login from './layout/login'
 import Main from './layout/main/main'
 import AdminPanel from './layout/adminPanel'
+import ProductPage from './components/ui/productPage/productPage'
+import './App.css'
 function App() {
   return (
     <>
@@ -16,7 +18,11 @@ function App() {
         <ProductsProvider>
           <Switch>
             <Route path='/admin' component={AdminPanel} />
-            <Route path='/products/:sex?/:category?' component={Products} />
+            <Route
+              path='/products/:sex?/:category?/:type?'
+              component={Products}
+            />
+            <Route path='/product/:productId?/:edit?' component={ProductPage} />
             <Route path='/login/:type?' component={Login} />
             <Route path='/basket' component={Basket} />
             <Route path='/' exact component={Main} />

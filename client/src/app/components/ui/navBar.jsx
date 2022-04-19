@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Divider from '../common/divider'
-// import './navBar.sass'
 const NavBar = () => {
   const [isNavClosed, setIsNavClosed] = useState(false)
-  // const [linksColor, setLinksColor] = useState('text-muted')
   const history = useHistory()
   const handleNavbarMove = () => {
     setIsNavClosed((prevState) => !prevState)
@@ -13,29 +11,29 @@ const NavBar = () => {
     handleNavbarMove()
     history.push(path)
   }
-  // const handleChangeClass = () => {
-  //   setLinksColor('text-white')
-  // }
-  // const handleChangeClassBack = () => {
-  //   setLinksColor('text-muted')
-  // }
   return (
     <>
       <nav className='navbar navbar-dark bg-dark'>
         {isNavClosed && (
+          // <div className='list-group d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
+          //   <a
+          //     href=''
+          //     className='list-group-item list-group-item-action list-group-item-dark'
+          //   >
+          //     Men
+          //   </a>
+          // </div>
           <div className='d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
             <h5 className='text-white h4'>WOMAN</h5>
             <Divider />
             <h6
-              className='iitem'
-              // onMouseEnter={handleChangeClass}
-              // onMouseLeave={handleChangeClassBack}
+              className='text-muted'
               onClick={() => handleCategoryClick('/products/women/clothes')}
             >
               CLOTHES
             </h6>
             <h6
-              className='iitem'
+              className='text-muted'
               onClick={() => handleCategoryClick('/products/women/shoes')}
             >
               SHOES

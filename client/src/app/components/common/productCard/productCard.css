@@ -1,0 +1,25 @@
+.card-wrapper {
+  align-content: space-between;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.135);
+  box-sizing: border-box;
+  grid-template-rows: 0.5fr 0.5fr 40px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 95%;
+}
+.card-wrapper:hover {
+  background-color: rgb(213, 213, 213);
+  box-shadow: 0 2px 8px rgb(255, 255, 255);
+}
+.card-image {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  margin: 18px 4px 0;
+}

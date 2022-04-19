@@ -30,9 +30,7 @@ const { productsRequested, productsReceived, productsRequestFailed } =
 export const loadProducts = () => async (dispatch) => {
   dispatch(productsRequested())
   try {
-    console.log('in store')
-    const { content } = await productsService.fetchAll()
-    console.log('content', content)
+    const content = await productsService.get()
     dispatch(productsReceived(content))
   } catch (error) {
     dispatch(productsRequestFailed(error.message))
@@ -43,13 +41,25 @@ export const getProductsLoadingStatus = () => (state) =>
 export const getAllProducts = () => (state) => {
   return state.products.entities
 }
-export const getProducts =
-  ({ sex, category, type }) =>
-  (state) => {
-    if (state.products.isLoading) return []
-    if (!type) {
-      return _.toArray(state.products.entities[sex][category])
+export const getProuctsByType = (sex, category, type) => (state) => {
+  if (state.products.isLoading) return []
+  if (sex) {
+    if (category) {
+      if (type) {
+        return state.products.entities.filter(
+          (e) => e.sex === sex && e.category === category && e.type === type
+        )
+      }
+      return state.products.entities.filter(
+        (e) => e.sex === sex && e.category === category
+      )
     }
-    return _.toArray(state.products.entities[sex][category][type])
+    return state.products.entities.filter((e) => e.sex === sex)
   }
+}
+export const getProductById = (id) => (state) => {
+  if (state.products.entities)
+    return state.products.entities.find((e) => e._id === id)
+}
+
 export default productsReducer

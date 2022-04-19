@@ -1,11 +1,104 @@
 [
-  { "_id": "hSouSz041ZVAujR9kRPOzy1", "name": "bags" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy2", "name": "sunglasses" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy3", "name": "jeans" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy4", "name": "shirts" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy5", "name": "tshirts" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy6", "name": "underwear" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy7", "name": "sandals" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy8", "name": "shoes" },
-  { "_id": "hSouSz041ZVAujR9kRPOzy9", "name": "dresses" }
+  {
+    "_id": "625d7da806bc0184cfa27c39",
+    "name": "bags",
+    "category": "bags",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3a",
+    "name": "sunglasses",
+    "category": "bags",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3b",
+    "name": "jeans",
+    "category": "clothes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3c",
+    "name": "shirts",
+    "category": "clothes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3d",
+    "name": "tshirts",
+    "category": "clothes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3e",
+    "name": "underwear",
+    "category": "clothes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c3f",
+    "name": "sandals",
+    "category": "shoes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c40",
+    "name": "shoes",
+    "category": "shoes",
+    "sex": "men"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c41",
+    "name": "bags",
+    "category": "bags",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c42",
+    "name": "sunglasses",
+    "category": "bags",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c43",
+    "name": "jeans",
+    "category": "clothes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c44",
+    "name": "shirts",
+    "category": "clothes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c45",
+    "name": "tshirts",
+    "category": "clothes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c46",
+    "name": "underwear",
+    "category": "clothes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c47",
+    "name": "sandals",
+    "category": "shoes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c48",
+    "name": "shoes",
+    "category": "shoes",
+    "sex": "women"
+  },
+  {
+    "_id": "625d7da806bc0184cfa27c49",
+    "name": "dresses",
+    "category": "clothes",
+    "sex": "women"
+  }
 ]

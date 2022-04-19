@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
     })
   }
 })
+router.get('/:productId', async (req, res) => {
+  try {
+    const { productId } = req.params
+    const product = await Product.findOne({ _id: productId })
+    res.status(200).send(product)
+  } catch (error) {
+    res.status(500).json({
+      message: 'На сервере произошла ошибка'
+    })
+  }
+})
 
 router.patch('/:productId', auth, async (req, res) => {
   try {
