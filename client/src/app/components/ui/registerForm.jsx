@@ -1,36 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { validator } from '../../utils/validator'
 import TextField from '../common/form/textField'
-import SelectField from '../common/form/selectField'
-import RadioField from '../common/form/radioField'
-import MultiSelectField from '../common/form/multiSelectField'
-import CheckBoxField from '../common/form/checkBoxField'
-import { useDispatch, useSelector } from 'react-redux'
-import { getQualities } from '../../store/qualities'
-import { getProfessions } from '../../store/professions'
+import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/users'
+import RadioField from '../common/form/radioField'
+import CheckBoxField from '../common/form/checkBoxField'
 const RegisterForm = () => {
   const dispatch = useDispatch()
   const [data, setData] = useState({
     email: '',
     password: '',
-    profession: '',
     sex: 'male',
     name: '',
-    qualities: [],
     licence: false
   })
-  const qualities = useSelector(getQualities())
-  const qualitiesList = qualities.map((q) => ({
-    label: q.name,
-    value: q._id
-  }))
-  const professions = useSelector(getProfessions())
-
-  const professionsList = professions.map((p) => ({
-    name: p.name,
-    value: p._id
-  }))
   const [errors, setErrors] = useState({})
   const handleChange = (target) => {
     setData((prevState) => ({
@@ -53,7 +36,7 @@ const RegisterForm = () => {
       },
       min: {
         message: 'Имя должно состоять минимум из 3 символов',
-        value: 8
+        value: 3
       }
     },
     password: {
@@ -69,11 +52,6 @@ const RegisterForm = () => {
       min: {
         message: 'Пароль должен состоять минимум из 8 символов',
         value: 8
-      }
-    },
-    profession: {
-      isRequired: {
-        message: 'Обязательно выберите вашу профессию'
       }
     },
     licence: {
@@ -127,15 +105,6 @@ const RegisterForm = () => {
         onChange={handleChange}
         error={errors.password}
       />
-      <SelectField
-        label='Выбери свою профессию'
-        defaultOption='Choose...'
-        options={professionsList}
-        name='profession'
-        onChange={handleChange}
-        value={data.profession}
-        error={errors.profession}
-      />
       <RadioField
         options={[
           { name: 'Male', value: 'male' },
@@ -146,13 +115,6 @@ const RegisterForm = () => {
         name='sex'
         onChange={handleChange}
         label='Выберите ваш пол'
-      />
-      <MultiSelectField
-        options={qualitiesList}
-        onChange={handleChange}
-        defaultValue={data.qualities}
-        name='qualities'
-        label='Выберите ваши качества'
       />
       <CheckBoxField
         value={data.licence}

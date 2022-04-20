@@ -1,5 +1,5 @@
-[type='radio']:checked,
-[type='radio']:not(:checked) {
+.product-page[type='radio']:checked,
+.product-page[type='radio']:not(:checked) {
   position: absolute;
   left: -9999px;
   width: 0;

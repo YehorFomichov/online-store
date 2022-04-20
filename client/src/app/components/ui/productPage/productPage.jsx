@@ -1,14 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { addProductToCart } from '../../../store/cart'
 import { getProductById } from '../../../store/products'
 import PathString from '../../common/pathString'
 import SelectSize from '../../common/select/selectSize'
 
 const ProductPage = () => {
+  const dispatch = useDispatch()
+  const [data, setData] = useState({})
   const params = useParams()
   const handleChange = (event) => {
-    console.log(event.target.value)
+    setData({ size: event.target.value })
+  }
+  const handleSubmit = () => {
+    console.log({ ...product, size: data.size })
+    dispatch(
+      addProductToCart({
+        ...product,
+        size: data.size ? data.size : 'default',
+        quontity: 1
+      })
+    )
   }
   const { productId } = params
   const product = useSelector(getProductById(productId))
@@ -35,8 +48,8 @@ const ProductPage = () => {
                   {product.price} ₴
                 </h3>
               </div>
-              <button className='btn btn-success'>
-                <i class='bi bi-cart-plus'></i> BUY
+              <button className='btn btn-success' onClick={handleSubmit}>
+                <i className='bi bi-cart-plus'></i> BUY
               </button>
             </div>
             <p className='py-4'>Description:</p>

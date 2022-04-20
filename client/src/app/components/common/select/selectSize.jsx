@@ -4,7 +4,7 @@ const SelectSize = ({ onChange }) => {
   return (
     <div className='d-flex flex-row align-items-center py-3'>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-1'
@@ -15,7 +15,7 @@ const SelectSize = ({ onChange }) => {
         XS
       </label>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-2'
@@ -26,7 +26,7 @@ const SelectSize = ({ onChange }) => {
         S
       </label>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-3'
@@ -37,7 +37,7 @@ const SelectSize = ({ onChange }) => {
         M
       </label>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-4'
@@ -48,7 +48,7 @@ const SelectSize = ({ onChange }) => {
         L
       </label>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-5'
@@ -59,7 +59,7 @@ const SelectSize = ({ onChange }) => {
         XL
       </label>
       <input
-        className='checkbox-size'
+        className='checkbox-size product-page'
         type='radio'
         name='tools'
         id='tool-6'

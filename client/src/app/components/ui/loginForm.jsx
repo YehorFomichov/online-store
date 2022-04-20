@@ -13,7 +13,7 @@ const LoginForm = () => {
     password: '',
     stayOn: false
   })
-  const loginError = useSelector(getAuthError())
+  // const loginError = useSelector(getAuthError())
   const [errors, setErrors] = useState({})
   const dispatch = useDispatch()
   const handleChange = (target) => {
@@ -89,13 +89,11 @@ const LoginForm = () => {
         value={data.email}
         onChange={handleChange}
         error={errors.email}
-        defaultValue='test@gmail.com'
       />
       <TextField
         label='Пароль'
         type='password'
         name='password'
-        defaultValue='Test1234'
         value={data.password}
         onChange={handleChange}
         error={errors.password}
@@ -103,7 +101,7 @@ const LoginForm = () => {
       <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>
         Оставаться в системе
       </CheckBoxField>
-      {loginError && <p className='text-danger'>{loginError}</p>}
+      {/* {loginError && <p className='text-danger'>{loginError}</p>} */}
       <button
         className='btn btn-primary w-100 mx-auto'
         type='submit'

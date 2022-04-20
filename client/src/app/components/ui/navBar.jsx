@@ -1,28 +1,24 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Divider from '../common/divider'
-const NavBar = () => {
-  const [isNavClosed, setIsNavClosed] = useState(false)
+const NavBar = ({ onModalOpen }) => {
+  const [navbarState, setNavbarState] = useState(false)
   const history = useHistory()
-  const handleNavbarMove = () => {
-    setIsNavClosed((prevState) => !prevState)
+  const handleOpenNavbar = () => {
+    setNavbarState((prevState) => !prevState)
   }
   const handleCategoryClick = (path) => {
-    handleNavbarMove()
+    setNavbarState(false)
+    history.push(path)
+  }
+  const handleRedirect = (path) => {
+    setNavbarState(false)
     history.push(path)
   }
   return (
     <>
       <nav className='navbar navbar-dark bg-dark'>
-        {isNavClosed && (
-          // <div className='list-group d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
-          //   <a
-          //     href=''
-          //     className='list-group-item list-group-item-action list-group-item-dark'
-          //   >
-          //     Men
-          //   </a>
-          // </div>
+        {navbarState && (
           <div className='d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
             <h5 className='text-white h4'>WOMAN</h5>
             <Divider />
@@ -67,20 +63,17 @@ const NavBar = () => {
           </div>
         )}
         <div className='container-fluid'>
-          <button className='navbar-toggler' onClick={handleNavbarMove}>
+          <button className='navbar-toggler' onClick={handleOpenNavbar}>
             <span className='navbar-toggler-icon'></span>
           </button>
           <div>
-            <button className='navbar-toggler' onClick={handleNavbarMove}>
-              <i className='bi bi-search'></i>
-            </button>
-            <button className='navbar-toggler' onClick={handleNavbarMove}>
-              <i className='bi bi-person-square'></i>
-            </button>
             <button
               className='navbar-toggler'
-              onClick={() => history.push('./basket')}
+              onClick={() => handleRedirect('/login')}
             >
+              <i className='bi bi-person-square'></i>
+            </button>
+            <button className='navbar-toggler' onClick={onModalOpen}>
               <i className='bi bi-cart'></i>
             </button>
           </div>

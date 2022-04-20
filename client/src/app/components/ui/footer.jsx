@@ -3,58 +3,43 @@ import './footer.css'
 const Footer = () => {
   return (
     <div className='container-fluid'>
-      <div className='row' style={{ textAlign: 'center' }}>
-        <h2>More info:</h2>
-      </div>
       <footer className='footer-bs'>
         <div className='row'>
           <div className='col-md-3 footer-brand animated fadeInLeft'>
             <h2>Logo</h2>
             <p>
-              Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam
-              porttitor vitae orci nec ultricies. Curabitur vehicula, libero
-              eget faucibus faucibus, purus erat eleifend enim, porta
-              pellentesque ex mi ut sem.
+              The only way to keep your health is to eat what you don't want,
+              drink what you don't like, and do what you'd rather not.
             </p>
-            <p>© 2014 BS3 UI Kit, All rights reserved</p>
           </div>
           <div className='col-md-2 footer-nav animated fadeInUp'>
             <h4>Menu —</h4>
             <div className='col'>
               <ul className='pages'>
                 <li>
-                  <a href='/'>Men</a>
+                  <a href='/login'>Login</a>
                 </li>
                 <li>
-                  <a href='/'>Women</a>
+                  <a href='/products/men'>Men</a>
                 </li>
                 <li>
-                  <a href='/'>extra</a>
-                </li>
-                <li>
-                  <a href='/'>Science</a>
-                </li>
-                <li>
-                  <a href='/'>Advice</a>
+                  <a href='/products/men'>Women</a>
                 </li>
               </ul>
             </div>
           </div>
           <div className='col-md-2 footer-nav animated fadeInUp'>
-            <h4>Menu —</h4>
+            <h4>User —</h4>
             <div className='col'>
               <ul className='list'>
                 <li>
-                  <a href='/'>About Us</a>
+                  <a href='/about'>About Us</a>
                 </li>
                 <li>
                   <a href='/'>Contacts</a>
                 </li>
                 <li>
                   <a href='/'>{'Terms & Condition'}</a>
-                </li>
-                <li>
-                  <a href='/'>Privacy Policy</a>
                 </li>
               </ul>
             </div>
@@ -71,16 +56,11 @@ const Footer = () => {
               <li>
                 <a href='/'>Instagram</a>
               </li>
-              <li>
-                <a href='/'>RSS</a>
-              </li>
             </ul>
           </div>
           <div className='col-md-3 footer-ns animated fadeInRight'>
             <h4>Newsletter</h4>
-            <p>
-              {'A rover wearing a fuzzy suit doesn’t alarm the real penguins'}
-            </p>
+            <p>The road to success is always under construction.</p>
             <p />
             <div className='input-group'>
               <input
