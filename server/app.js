@@ -34,7 +34,7 @@ async function start() {
       console.log(chalk.green(`Server has been started on port ${PORT}`))
     })
   } catch (error) {
-    console.log(chalk.red(e.message))
+    console.log(chalk.red(error.message))
     process.exit(1)
   }
 }
