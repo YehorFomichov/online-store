@@ -8,7 +8,6 @@
 /server/client
 # testing
 /client/coverage
-/server/config
 # production
 /client/build
 
