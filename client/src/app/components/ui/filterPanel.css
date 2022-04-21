@@ -1,6 +1,7 @@
 .filter-panel {
   min-height: 120px;
-  max-width: fit-content;
+  /* height: 80vw; */
+  max-width: 75vw;
   position: absolute;
   background-color: var(--dark-blue);
 }
