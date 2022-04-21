@@ -9,6 +9,7 @@
   margin-bottom: 20px;
   height: 95%;
 }
+
 .card-wrapper:hover {
   background-color: rgb(213, 213, 213);
   box-shadow: 0 2px 8px rgb(255, 255, 255);
@@ -22,4 +23,9 @@
   height: 400px;
   justify-content: center;
   margin: 18px 4px 0;
+}
+@media (max-width: 576px) {
+  .card-image {
+    margin: 5px 4px;
+  }
 }

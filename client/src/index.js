@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-// import './app/assets/bootstrap.min.css'
 import App from './app/App'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
 import { createStore } from './app/store/createStore'

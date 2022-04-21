@@ -1,5 +1,6 @@
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Cart from './components/ui/cart'
 import Footer from './components/ui/footer'
 import NavBar from './components/ui/navBar'
@@ -19,7 +20,7 @@ function App() {
   }
   return (
     <>
-      <div className='d-flex flex-column justify-content-between'>
+      <div className='container-fluid d-flex flex-column justify-content-between'>
         <FilterProvider>
           <NavBar onModalOpen={toggleModalWindow} />
           <Switch>
@@ -35,10 +36,13 @@ function App() {
             <Redirect to='/' />
           </Switch>
         </FilterProvider>
-        {modalState && <Modal onModalOpen={toggleModalWindow} />}
+
         <Footer />
       </div>
-      <ToastContainer />
+      {modalState && <Modal onModalOpen={toggleModalWindow} />}
+      <ToastContainer
+        toastStyle={{ backgroundColor: '#353746', color: 'white' }}
+      />
     </>
   )
 }

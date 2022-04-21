@@ -76,18 +76,18 @@ const NavBar = ({ onModalOpen }) => {
           </button>
           <div>
             <button
-              className='navbar-toggler'
+              className='navbar-toggler px-0'
               onClick={() => handleRedirect('/')}
             >
               <i className='bi bi-house'></i>
             </button>
             <button
-              className='navbar-toggler'
+              className='navbar-toggler px-0'
               onClick={() => handleRedirect('/login')}
             >
               <i className='bi bi-person-square'></i>
             </button>
-            <button className='navbar-toggler' onClick={onModalOpen}>
+            <button className='navbar-toggler px-0' onClick={onModalOpen}>
               <i className='bi bi-cart'></i>
             </button>
           </div>

@@ -6,7 +6,7 @@ const FiltersPanel = () => {
   const [show, setShow] = useState(false)
   const { minPrice, maxPrice, handleChangePrice } = useFilter()
   return (
-    <div className='p-1'>
+    <div className='px-4'>
       <button className='btn text-white' onClick={() => setShow(!show)}>
         <i className='bi bi-filter-circle text-warning p-1'></i> Filters
       </button>

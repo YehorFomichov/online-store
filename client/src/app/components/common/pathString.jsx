@@ -12,8 +12,8 @@ const PathString = ({ sex, category, type }) => {
       history.push(`/products/${sex}/${category}/${type}`)
     }
   }
-  const Arrow = () => <i className='bi bi-chevron-compact-right m-2'></i>
-  const Home = () => <i className='bi bi-house'></i>
+  const Arrow = () => <i className='bi bi-chevron-compact-right p-0 m-2'></i>
+  const Home = () => <i className='bi bi-house p-0'></i>
   return (
     <div className='d-flex flex-row justify-content-start align-items-center'>
       <Home />

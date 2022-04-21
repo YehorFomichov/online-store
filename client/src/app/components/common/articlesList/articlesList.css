@@ -17,6 +17,7 @@
   transition: opacity 200ms ease 0s;
   pointer-events: none;
 }
+
 .article {
   letter-spacing: 0.15px;
   text-transform: none;

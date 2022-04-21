@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { addProductToCart } from '../../../store/cart'
 import { getProductById } from '../../../store/products'
 import PathString from '../../common/pathString'
 import SelectSize from '../../common/select/selectSize'
 
 const ProductPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const dispatch = useDispatch()
   const [data, setData] = useState({})
   const params = useParams()
@@ -14,7 +18,7 @@ const ProductPage = () => {
     setData({ size: event.target.value })
   }
   const handleSubmit = () => {
-    console.log({ ...product, size: data.size })
+    toast.success('Product has been successfully added to the cart')
     dispatch(
       addProductToCart({
         ...product,
