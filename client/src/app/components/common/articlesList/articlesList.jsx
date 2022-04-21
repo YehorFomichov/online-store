@@ -7,6 +7,8 @@ import {
   getProuctsByType,
   loadProducts
 } from '../../../store/products'
+import FiltersPanel from '../../ui/filtersPanel'
+import { useFilter } from '../../../hooks/useFilter'
 
 const ArticlesList = () => {
   const history = useHistory()
@@ -22,28 +24,34 @@ const ArticlesList = () => {
   const handleCardClick = (id) => {
     history.push(`/product/${id}`)
   }
+  const { filterProducts, handleSearchQuery, searchQuery } = useFilter()
+  const filteredProducts = filterProducts(products)
   return (
     <>
-      <div className='row'>
-        <div className='col-4 d-flex justify-content-start align-items-center'>
-          Filters
+      <div className='row mb-2'>
+        <div className='col-2 d-flex justify-content-start align-items-center'>
+          <FiltersPanel />
         </div>
-        <div className='col-4 d-flex justify-content-center align-items-center'>
-          Products
+        <div className='col-8 d-flex justify-content-center align-items-center'>
+          <input
+            className='form-control me-sm-2 row bg-light'
+            type='text'
+            name='searchQuery'
+            placeholder='Search...'
+            onChange={handleSearchQuery}
+            value={searchQuery}
+          />
         </div>
-        <div className='col-4 d-flex justify-content-end align-items-center'>
-          <button className='btn' onClick={() => changePositionState(4)}>
-            <i className='bi bi-grid-3x3-gap-fill img-fluid'></i>
-          </button>
+        <div className='col-2 d-flex justify-content-end align-items-center'>
           <button className='btn'>
             <i
-              className='bi bi-grid-fill'
+              className='bi bi-grid-fill bi-white text-muted'
               onClick={() => changePositionState(6)}
             ></i>
           </button>
           <button className='btn'>
             <i
-              className='bi bi-justify'
+              className='bi bi-justify text-muted'
               onClick={() => changePositionState(12)}
             ></i>
           </button>
@@ -52,7 +60,7 @@ const ArticlesList = () => {
       <div className='container-fluid'>
         <div className='row'>
           {!isLoading &&
-            products.map((e) => (
+            filteredProducts.map((e) => (
               <div
                 key={e._id}
                 className={

@@ -4,7 +4,6 @@ import Cart from './components/ui/cart'
 import Footer from './components/ui/footer'
 import NavBar from './components/ui/navBar'
 import Products from './components/ui/products'
-import ProductsProvider from './hooks/useProducts'
 import Login from './layout/login'
 import Main from './layout/main/main'
 import AdminPanel from './layout/adminPanel'
@@ -12,6 +11,7 @@ import ProductPage from './components/ui/productPage/productPage'
 import './App.css'
 import Modal from './components/ui/modal/modal'
 import { useState } from 'react'
+import FilterProvider from './hooks/useFilter'
 function App() {
   const [modalState, setModalState] = useState(false)
   const toggleModalWindow = () => {
@@ -20,8 +20,8 @@ function App() {
   return (
     <>
       <div className='d-flex flex-column justify-content-between'>
-        <NavBar onModalOpen={toggleModalWindow} />
-        <ProductsProvider>
+        <FilterProvider>
+          <NavBar onModalOpen={toggleModalWindow} />
           <Switch>
             <Route path='/admin' component={AdminPanel} />
             <Route
@@ -34,7 +34,7 @@ function App() {
             <Route path='/' exact component={Main} />
             <Redirect to='/' />
           </Switch>
-        </ProductsProvider>
+        </FilterProvider>
         {modalState && <Modal onModalOpen={toggleModalWindow} />}
         <Footer />
       </div>

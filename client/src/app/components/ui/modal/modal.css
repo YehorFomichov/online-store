@@ -8,17 +8,17 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 100000;
 }
 
 .modalContainer {
   box-sizing: border-box;
-  background-color: #fefefe;
+  background-color: var(--white);
   height: calc(100% - 80px);
   overflow-y: scroll;
   position: fixed;
-  border-radius: 3px;
-  width: calc(100% - 80px);
+  border-radius: 8px;
+  width: calc(100% - 10vw);
   z-index: 200;
 }
 .close-header {
@@ -28,6 +28,7 @@
   height: 40px;
   justify-content: space-between;
 }
+
 .bi {
   box-sizing: border-box;
   cursor: pointer;

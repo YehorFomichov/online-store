@@ -14,7 +14,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     setShowPassword((prevState) => !prevState)
   }
   return (
-    <div>
+    <div className='py-3'>
       <label htmlFor={name}>{label}</label>
       <div className='input-group has-validation'>
         <input
