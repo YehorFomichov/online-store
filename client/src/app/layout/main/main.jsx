@@ -42,17 +42,25 @@ const Main = () => {
         <div
           className='col-xs-12 col-md-6 my-2
         d-flex justify-content-center align-items-center'
-          onClick={() => handleRedirect('/products/men')}
         >
-          <h1 className='img-text'>MEN COLLECTION</h1>
+          <h1
+            className='img-text'
+            onClick={() => handleRedirect('/products/men')}
+          >
+            MEN COLLECTION
+          </h1>
           <img className='img-main' src={menImages[index]} alt='' />
         </div>
         <div
           className='col-xs-12 col-md-6 my-2
         d-flex justify-content-center align-items-center'
-          onClick={() => handleRedirect('/products/women')}
         >
-          <h1 className='img-text'>WOMEN COLLECTION</h1>
+          <h1
+            className='img-text'
+            onClick={() => handleRedirect('/products/women')}
+          >
+            WOMEN COLLECTION
+          </h1>
           <img className='img-main' src={womenImages[index]} alt='' />
         </div>
       </div>

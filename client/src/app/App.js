@@ -1,18 +1,17 @@
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Cart from './components/ui/cart'
-import Footer from './components/ui/footer'
+import Footer from './components/ui/footer/footer'
 import NavBar from './components/ui/navBar'
-import Products from './components/ui/products'
-import Login from './layout/login'
+import Login from './components/pages/login/login'
 import Main from './layout/main/main'
 import AdminPanel from './layout/adminPanel'
-import ProductPage from './components/ui/productPage/productPage'
+import ProductPage from './components/pages/productPage/productPage'
 import './App.css'
-import Modal from './components/ui/modal/modal'
 import { useState } from 'react'
 import FilterProvider from './hooks/useFilter'
+import Cart from './components/pages/cart/cart'
+import ProductsPage from './components/pages/productsPage/productsPage'
 function App() {
   const [modalState, setModalState] = useState(false)
   const toggleModalWindow = () => {
@@ -27,11 +26,10 @@ function App() {
             <Route path='/admin' component={AdminPanel} />
             <Route
               path='/products/:sex?/:category?/:type?'
-              component={Products}
+              component={ProductsPage}
             />
             <Route path='/product/:productId?/:edit?' component={ProductPage} />
             <Route path='/login/:type?' component={Login} />
-            <Route path='/cart' component={Cart} />
             <Route path='/' exact component={Main} />
             <Redirect to='/' />
           </Switch>
@@ -39,7 +37,7 @@ function App() {
 
         <Footer />
       </div>
-      {modalState && <Modal onModalOpen={toggleModalWindow} />}
+      {modalState && <Cart onModalOpen={toggleModalWindow} />}
       <ToastContainer
         toastStyle={{ backgroundColor: '#353746', color: 'white' }}
       />

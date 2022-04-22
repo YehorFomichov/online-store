@@ -34,3 +34,8 @@
   opacity: 1;
   border-radius: 5px;
 }
+@media (min-width: 1200px) {
+  .img-text {
+    padding-bottom: 30%;
+  }
+}

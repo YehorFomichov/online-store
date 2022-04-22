@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { addProductToCart } from '../../../store/cart'
 import { getProductById } from '../../../store/products'
 import PathString from '../../common/pathString'
@@ -18,12 +17,11 @@ const ProductPage = () => {
     setData({ size: event.target.value })
   }
   const handleSubmit = () => {
-    toast.success('Product has been successfully added to the cart')
     dispatch(
       addProductToCart({
         ...product,
         size: data.size ? data.size : 'default',
-        quontity: 1
+        quantity: 1
       })
     )
   }

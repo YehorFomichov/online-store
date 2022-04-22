@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import ProductCard from '../productCard/productCard'
+import ProductCard from '../../common/productCard/productCard'
 import {
   getProductsLoadingStatus,
   getProuctsByType,
   loadProducts
 } from '../../../store/products'
-import FiltersPanel from '../../ui/filtersPanel'
+import FiltersPanel from '../../ui/filterPanel/filtersPanel'
 import { useFilter } from '../../../hooks/useFilter'
 
-const ArticlesList = () => {
+const ProductsPage = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   useEffect(() => {
@@ -60,4 +60,4 @@ const ArticlesList = () => {
   )
 }
 
-export default ArticlesList
+export default ProductsPage

@@ -35,7 +35,7 @@ router.post('/signUp', [
       const hashedPassword = await bcrypt.hash(password, 12)
       const newUser = await User.create({
         password: hashedPassword,
-        isAdmin,
+        isAdmin: false,
         name,
         email
       })
@@ -45,7 +45,7 @@ router.post('/signUp', [
 
       res.status(201).send({
         ...tokens,
-        userId: newUser._id
+        localId: newUser._id
       })
     } catch (error) {
       res.status(500).json({

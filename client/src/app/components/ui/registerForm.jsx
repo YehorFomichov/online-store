@@ -75,11 +75,8 @@ const RegisterForm = () => {
     e.preventDefault()
     const isValid = validate()
     if (!isValid) return
-    const transformedData = {
-      ...data,
-      qualities: data.qualities.map((q) => q.value)
-    }
-    dispatch(signUp(transformedData))
+    console.log(data)
+    dispatch(signUp(data))
   }
   return (
     <form onSubmit={handleSubmit}>

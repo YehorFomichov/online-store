@@ -3,7 +3,6 @@ import authService from '../services/auth.service'
 import localStorageService from '../services/localStorage.service'
 import history from '../utils/history'
 import generateAuthError from '../utils/generateAuthError'
-import userService from '../services/user.service'
 const initialState = localStorageService.getAccessToken()
   ? {
       entities: null,
@@ -90,36 +89,39 @@ export const signUp =
   async (dispatch) => {
     dispatch(authRequested())
     try {
-      const data = await authService.register({ email, password })
+      const data = await authService.register({ email, password, ...rest })
       localStorageService.setTokens(data)
       dispatch(authRequestSuccess({ userId: data.localId }))
-      dispatch(
-        createUser({
-          email,
-          image: `https://avatars.dicebear.com/api/avataaars/${(
-            Math.random() + 1
-          )
-            .toString(36)
-            .substring(7)}.svg`,
-          ...rest
-        })
-      )
+      // dispatch(userCreated(content))
+      // dispatch(
+      //   createUser({
+      //     email,
+      //     _id: data.localId,
+      //     image: `https://avatars.dicebear.com/api/avataaars/${(
+      //       Math.random() + 1
+      //     )
+      //       .toString(36)
+      //       .substring(7)}.svg`,
+      //     ...rest
+      //   })
+      // )
+      history.push('/')
     } catch (error) {
       dispatch(authRequstFailed(error.message))
     }
   }
-function createUser(payload) {
-  return async function (dispatch) {
-    dispatch(userCreateRequested())
-    try {
-      const { content } = await userService.create(payload)
-      dispatch(userCreated(content))
-      history.push('/')
-    } catch (error) {
-      dispatch(createUserFailed(error.message))
-    }
-  }
-}
+// function createUser(payload) {
+//   return async function (dispatch) {
+//     dispatch(userCreateRequested())
+//     try {
+//       const { content } = await userService.create(payload)
+//       dispatch(userCreated(content))
+//       history.push('/')
+//     } catch (error) {
+//       dispatch(createUserFailed(error.message))
+//     }
+//   }
+// }
 
 export const getIsLoggedIn = () => (state) => state.users.isLoggedIn
 export const getCurrentUserId = () => (state) => state.users.auth.userId

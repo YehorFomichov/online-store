@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './filterPanel.css'
-import Slider from '../common/slider/slider'
-import { useFilter } from '../../hooks/useFilter'
+import './filtersPanel.css'
+import Slider from '../../common/slider/slider'
+import { useFilter } from '../../../hooks/useFilter'
 const FiltersPanel = () => {
   const [show, setShow] = useState(false)
   const { minPrice, maxPrice, handleChangePrice } = useFilter()

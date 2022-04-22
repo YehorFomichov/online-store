@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   decreaseProductQuantity,
   getCart,
   getTotalPrice,
-  increaseProductQuantity
+  increaseProductQuantity,
+  orderEverything
 } from '../../../store/cart'
-import './modal.css'
+import { getCurrentUserId } from '../../../store/users'
+import './cart.css'
 
-function Modal({ onModalOpen }) {
+function Cart({ onModalOpen }) {
   const dispatch = useDispatch()
   const cart = useSelector(getCart())
   const totalPrice = useSelector(getTotalPrice())
@@ -17,6 +19,10 @@ function Modal({ onModalOpen }) {
   }
   const handleIncrease = (id) => {
     dispatch(increaseProductQuantity(id))
+  }
+  const currentUserId = useSelector(getCurrentUserId())
+  const handleOrder = () => {
+    dispatch(orderEverything(currentUserId, cart))
   }
   return (
     <div className='modalBackground'>
@@ -47,7 +53,7 @@ function Modal({ onModalOpen }) {
                         >
                           -
                         </button>
-                        <h5 className='mt-2'>{el.quontity}</h5>
+                        <h5 className='mt-2'>{el.quantity}</h5>
                         <button
                           className='btn btn-primary mx-3'
                           onClick={() => handleIncrease(el._id)}
@@ -57,7 +63,7 @@ function Modal({ onModalOpen }) {
                       </div>
                       <div className='col-md-2 d-flex justify-content-center align-items-center'>
                         <h5 className='mt-2'>
-                          {`${Number(el.price) * Number(el.quontity)} UAH`}
+                          {`${Number(el.price) * Number(el.quantity)} UAH`}
                         </h5>
                       </div>
                     </div>
@@ -72,6 +78,7 @@ function Modal({ onModalOpen }) {
                 <button
                   className='btn btn-primary btn-lg'
                   data-element='orderBtn'
+                  onClick={handleOrder}
                 >
                   Order everything
                 </button>
@@ -90,4 +97,4 @@ function Modal({ onModalOpen }) {
   )
 }
 
-export default Modal
+export default Cart
