@@ -4,11 +4,8 @@ import configFile from '../config.json'
 import authService from './auth.service'
 import localStorageService from './localStorage.service'
 
-// axios.defaults.baseURL = configFile.APIEndPoint
-// axios.defaults.baseURL = configFile.APILocal
-
 const http = axios.create({
-  baseURL: configFile.APILocal
+  baseURL: configFile.APIEndPoint
 })
 
 http.interceptors.request.use(
