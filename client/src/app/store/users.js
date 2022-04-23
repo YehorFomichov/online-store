@@ -3,6 +3,7 @@ import authService from '../services/auth.service'
 import localStorageService from '../services/localStorage.service'
 import history from '../utils/history'
 import generateAuthError from '../utils/generateAuthError'
+import userService from '../services/user.service'
 const initialState = localStorageService.getAccessToken()
   ? {
       entities: null,
@@ -43,13 +44,41 @@ const usersSlice = createSlice({
     },
     authRequested: (state) => {
       state.error = null
+    },
+    userRequested: (state) => {
+      state.isLoading = true
+    },
+    userLoaded: (state, action) => {
+      state.entities = action.payload
+      state.isLoading = false
+    },
+    userLoadingFailed: (state, action) => {
+      state.isLoading = false
+      state.error = action.payload
     }
   }
 })
 
 const { reducer: usersReducer } = usersSlice
-const { authRequestSuccess, authRequstFailed, userLoggedOut, authRequested } =
-  usersSlice.actions
+const {
+  authRequestSuccess,
+  authRequstFailed,
+  userLoggedOut,
+  authRequested,
+  userRequested,
+  userLoaded,
+  userLoadingFailed
+} = usersSlice.actions
+
+export const loadUser = (id) => async (dispatch) => {
+  dispatch(userRequested())
+  try {
+    const { content } = await userService.get(id)
+    dispatch(userLoaded(content))
+  } catch (error) {
+    dispatch(userLoadingFailed(error))
+  }
+}
 
 export const logIn =
   ({ payload, redirect }) =>
@@ -86,6 +115,7 @@ export const signUp = (payload) => async (dispatch) => {
     dispatch(authRequstFailed(error.message))
   }
 }
+
 export const getIsLoggedIn = () => (state) => state.users.isLoggedIn
 export const getCurrentUserId = () => (state) => state.users.auth.userId
 export const getAuthError = () => (state) => state.users.error

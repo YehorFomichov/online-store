@@ -12,6 +12,7 @@ import { useState } from 'react'
 import FilterProvider from './hooks/useFilter'
 import Cart from './components/pages/cart/cart'
 import ProductsPage from './components/pages/productsPage/productsPage'
+import PaginateProvider from './hooks/usePaginate'
 function App() {
   const [modalState, setModalState] = useState(false)
   const toggleModalWindow = () => {
@@ -23,7 +24,9 @@ function App() {
         <FilterProvider>
           <NavBar onModalOpen={toggleModalWindow} />
           <Switch>
-            <Route path='/admin' component={AdminPanel} />
+            <PaginateProvider>
+              <Route path='/admin' component={AdminPanel} />
+            </PaginateProvider>
             <Route
               path='/products/:sex?/:category?/:type?'
               component={ProductsPage}

@@ -27,7 +27,7 @@ const SelectField = ({
         : options
 
     return (
-      <div className='mb-4'>
+      <div className='mb-1'>
         <label htmlFor={name} className='form-label'>
           {label}
         </label>
@@ -51,7 +51,15 @@ const SelectField = ({
         {error && <div className='invalid-feedback'>{error}</div>}
       </div>
     )
-  } else return <p>Please, Select Category</p>
+  } else
+    return (
+      <>
+        <label htmlFor={name} className='form-label'>
+          {label}
+        </label>
+        <p className='text-warning'>Please, select category first</p>
+      </>
+    )
 }
 
 SelectField.propTypes = {

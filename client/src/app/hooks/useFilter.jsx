@@ -8,15 +8,18 @@ export const useFilter = () => {
 
 const FilterProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedType, setSelectedType] = useState()
   const handleSearchQuery = ({ target }) => {
     setSearchQuery(target.value)
     setMaxPrice(10000)
     setMinPrice(0)
+    setSelectedType()
   }
   const removeFilters = () => {
     setMaxPrice(10000)
     setMinPrice(0)
     setSearchQuery('')
+    setSelectedType()
   }
   const [maxPrice, setMaxPrice] = useState(10000)
   const [minPrice, setMinPrice] = useState(0)
@@ -42,6 +45,8 @@ const FilterProvider = ({ children }) => {
       ? data.filter(
           (product) => product.price < maxPrice && product.price > minPrice
         )
+      : selectedType
+      ? data.filter((product) => product.type !== selectedType)
       : data
     return filteredProducts
   }
@@ -54,7 +59,8 @@ const FilterProvider = ({ children }) => {
         handleChangePrice,
         handleSearchQuery,
         searchQuery,
-        removeFilters
+        removeFilters,
+        setSelectedType
       }}
     >
       {children}

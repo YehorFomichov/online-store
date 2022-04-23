@@ -1,0 +1,26 @@
+.col1 {
+  width: 2%;
+}
+.col2 {
+  width: 78%;
+}
+.col3 {
+  width: 10%;
+}
+.col4 {
+  width: 10%;
+}
+.col5 {
+  width: 5%;
+}
+.col6 {
+  width: 5%;
+}
+.admin-row {
+  font-size: smaller;
+}
+.admin-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

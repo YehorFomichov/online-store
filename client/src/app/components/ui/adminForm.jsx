@@ -4,6 +4,7 @@ import InputForm from '../common/form/inputForm'
 import RadioField from '../common/form/radioField'
 import SelectField from '../common/form/selectField'
 import { nanoid } from 'nanoid'
+import calculateCategory from '../../utils/calculateCategory'
 const AdminForm = () => {
   const [data, setData] = useState({
     sex: '',
@@ -24,70 +25,25 @@ const AdminForm = () => {
     console.log(resp)
     setData((prevState) => ({ ...prevState, image: '' }))
   }
-  const calculateCategory = () => {
-    if (data.sex === 'men') {
-      if (data.category === 'clothes') {
-        return [
-          { name: 'Shirts', value: 'shirts' },
-          { name: 'T-Shirts', value: 'tshirts' },
-          { name: 'Underwear', value: 'underwear' },
-          { name: 'Jeans', value: 'jeans' }
-        ]
-      }
-      if (data.category === 'bags') {
-        return [
-          { name: 'Sunglasses', value: 'sunglasses' },
-          { name: 'Bags and backpacks', value: 'bags' }
-        ]
-      }
-      if (data.category === 'shoes') {
-        return [
-          { name: 'Shoes', value: 'shoes' },
-          { name: 'Sandals', value: 'sandals' }
-        ]
-      }
-    }
-    if (data.sex === 'women') {
-      if (data.category === 'clothes') {
-        return [
-          { name: 'Outerwear', value: 'outerwear' },
-          { name: 'Dresses', value: 'dresses' },
-          { name: 'T-Shirts', value: 'tshirts' },
-          { name: 'Underwear', value: 'underwear' }
-        ]
-      }
-      if (data.category === 'bags') {
-        return [
-          { name: 'Sunglasses', value: 'sunglasses' },
-          { name: 'Bags and backpacks', value: 'bags' }
-        ]
-      }
-      if (data.category === 'shoes') {
-        return [
-          { name: 'Shoes', value: 'shoes' },
-          { name: 'Sandals', value: 'sandals' }
-        ]
-      }
-    }
-  }
+
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='m-2'>
       <RadioField
         options={[
           { name: 'Men', value: 'men' },
           { name: 'Women', value: 'women' }
         ]}
         name='sex'
-        label='Sex'
+        label='Sex:'
         value={data.sex}
         onChange={handleChange}
       />
 
       <RadioField
-        label='Category'
+        label='Category:'
         name='category'
         value={data.category}
         onChange={handleChange}
@@ -98,37 +54,37 @@ const AdminForm = () => {
         ]}
       />
       <SelectField
-        label='Type'
+        label='Type:'
         name='type'
         value={data.type}
         onChange={handleChange}
-        options={calculateCategory()}
+        options={calculateCategory(data)}
       />
       <InputForm
-        label='Title'
+        label='Title:'
         name='title'
         value={data.title}
         onChange={handleChange}
       />
       <InputForm
-        label='Price'
+        label='Price:'
         name='price'
         value={data.price}
         onChange={handleChange}
       />
       <InputForm
-        label='Rating'
+        label='Rating:'
         name='rating'
         value={data.rating}
         onChange={handleChange}
       />
       <InputForm
-        label='Image'
+        label='Image:'
         name='image'
         value={data.image}
         onChange={handleChange}
       />
-      <button type='submit' className='btn btn-primary'>
+      <button type='submit' className='btn btn-primary my-2'>
         Submit
       </button>
     </form>
