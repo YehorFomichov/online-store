@@ -6,18 +6,17 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    // Bearer zdsfasevseradsffffffearsevserb
     const token = req.headers.authorization.split(' ')[1]
     if (!token) {
-      res.status(401).json({ message: 'Unauthorized' })
-    }
-    const data = tokenService.validateAccess(token)
-    if (!data) {
       return res.status(401).json({ message: 'Unauthorized' })
     }
+
+    const data = tokenService.validateAccess(token)
+
     req.user = data
+
     next()
-  } catch (error) {
-    res.status(401).json('Unauthorized')
+  } catch (e) {
+    res.status(401).json({ message: 'Unauthorized' })
   }
 }

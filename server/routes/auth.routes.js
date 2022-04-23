@@ -19,7 +19,7 @@ router.post('/signUp', [
           }
         })
       }
-      const { email, password, isAdmin, name } = req.body
+      const { email, password, name } = req.body
       const existingUser = await User.findOne({
         email
       })
@@ -34,10 +34,8 @@ router.post('/signUp', [
 
       const hashedPassword = await bcrypt.hash(password, 12)
       const newUser = await User.create({
-        password: hashedPassword,
-        isAdmin: false,
-        name,
-        email
+        ...req.body,
+        password: hashedPassword
       })
 
       const tokens = tokenService.generate({ _id: newUser._id })
@@ -45,7 +43,7 @@ router.post('/signUp', [
 
       res.status(201).send({
         ...tokens,
-        localId: newUser._id
+        userId: newUser._id
       })
     } catch (error) {
       res.status(500).json({
@@ -104,18 +102,22 @@ router.post('/signInWithPassword', [
     }
   }
 ])
+
+function isTokenInvalid(data, dbToken) {
+  return !data || !dbToken || data._id !== dbToken?.user?.toString()
+}
+
 router.post('/token', async (req, res) => {
   try {
     const { refresh_token: refreshToken } = req.body
     const data = tokenService.validateRefresh(refreshToken)
     const dbToken = await tokenService.findToken(refreshToken)
 
-    if (!data || !dbToken || data._id !== dbToken?.user?.toString()) {
+    if (isTokenInvalid(data, dbToken)) {
       return res.status(401).json({
         message: 'Unauthorised'
       })
     }
-
     const tokens = await tokenService.generate({
       id: data._id
     })

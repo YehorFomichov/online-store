@@ -1,5 +1,5 @@
 {
   "APIEndPoint": "https://online-store-prod-onlinestore-szq1b4.mo1.mogenius.io/api",
-  "APILocal": "http://localhost:8080/api",
+  "APILocal": "http://localhost:8080/api/",
   "isFireBase": false
 }

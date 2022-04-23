@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { addProductToCart } from '../../../store/cart'
 import { getProductById } from '../../../store/products'
-import PathString from '../../common/pathString'
+import PathString from '../../ui/pathString'
 import SelectSize from '../../common/select/selectSize'
 
 const ProductPage = () => {

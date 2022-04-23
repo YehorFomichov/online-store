@@ -2,8 +2,9 @@ import httpService from './http.service'
 const cartEndPoint = 'cart/'
 
 const cartService = {
-  getCart: async () => {
-    const { data } = await httpService.get(cartEndPoint)
+  getCart: async (id) => {
+    const url = `${cartEndPoint}/${id}`
+    const { data } = await httpService.get(url)
     return data
   },
   addToCart: async (currentUserId, cart) => {

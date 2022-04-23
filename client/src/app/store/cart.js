@@ -5,12 +5,13 @@ import cartService from '../services/cart.service'
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    entities: []
+    entities: [],
+    orders: []
   },
   reducers: {
     productAdded: (state, action) => {
       const index = state.entities.findIndex(
-        (e) => e._id === action.payload._id
+        (e) => e._id === action.payload._id && e.size === action.payload.size
       )
       if (index >= 0) {
         state.entities[index].quantity += 1
@@ -19,7 +20,7 @@ const cartSlice = createSlice({
       }
     },
     productRemoved: (state, action) => {
-      state.entities.filter((e) => e._id !== action.payload)
+      state.entities = state.entities.filter((e) => e._id !== action.payload)
     },
     quontityIncreased: (state, action) => {
       const index = state.entities.findIndex((e) => e._id === action.payload)
@@ -39,6 +40,9 @@ const cartSlice = createSlice({
     },
     errorAppeared: (state, action) => {
       state.error = action.payload
+    },
+    ordersReceived: (state, action) => {
+      state.orders = action.payload
     }
   }
 })
@@ -50,20 +54,31 @@ const {
   quontityIncreased,
   quontityDecreased,
   cartOrdered,
-  errorAppeared
+  errorAppeared,
+  ordersReceived
 } = cartSlice.actions
 
 export const addProductToCart = (product) => (dispatch) => {
   dispatch(productAdded(product))
   toast.success('Product has been successfully added to the cart')
 }
+export const loadOrdersByUserId = (id) => async (dispatch) => {
+  try {
+    const { content } = await cartService.getCart(id)
+    dispatch(ordersReceived(content))
+  } catch (error) {
+    dispatch(errorAppeared(error))
+  }
+}
+export const getCart = () => (state) => state.cart.entities
+export const getOrders = () => (state) => state.cart.orders
 export const removeProductFromCart = (id) => (dispatch) => {
   dispatch(productRemoved(id))
 }
 export const buyEverything = () => (state) => {
   return state.cart.entities
 }
-export const getCart = () => (state) => state.cart.entities
+
 export const increaseProductQuantity = (id) => (dispatch) => {
   dispatch(quontityIncreased(id))
 }

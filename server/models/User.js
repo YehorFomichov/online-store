@@ -13,7 +13,8 @@ const schema = new Schema(
     password: {
       type: String
     },
-    isAdmin: Boolean
+    isAdmin: Boolean,
+    image: String
   },
   {
     timestamps: true

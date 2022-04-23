@@ -30,7 +30,7 @@ const { productsRequested, productsReceived, productsRequestFailed } =
 export const loadProducts = () => async (dispatch) => {
   dispatch(productsRequested())
   try {
-    const content = await productsService.get()
+    const { content } = await productsService.get()
     dispatch(productsReceived(content))
   } catch (error) {
     dispatch(productsRequestFailed(error.message))

@@ -2,10 +2,14 @@ const express = require('express')
 const Cart = require('../models/Cart')
 const router = express.Router({ mergeParams: true })
 
-router.get('/', async (req, res) => {
+router.get('/:userId', async (req, res) => {
   try {
-    const list = await Cart.find()
-    res.status(200).send(list)
+    const { userId } = req.params
+    const cartList = await Cart.find()
+    const cart = cartList.filter((e) => {
+      return JSON.stringify(e.userId) === JSON.stringify(userId)
+    })
+    res.status(200).send(cart)
   } catch (error) {
     res.status(500).json({
       message: 'На сервере произошла ошибка'

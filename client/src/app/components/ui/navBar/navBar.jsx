@@ -1,8 +1,21 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useFilter } from '../../hooks/useFilter'
-import Divider from '../common/divider'
+import { useFilter } from '../../../hooks/useFilter'
+import Divider from './divider'
+import NH from './navBarHeader'
 const NavBar = ({ onModalOpen }) => {
+  const categories = {
+    men: [
+      { name: 'CLOTHES', path: '/products/women/clothes' },
+      { name: 'SHOES', path: '/products/women/shoes' },
+      { name: 'BAGS AND ACCESSORIES', path: '/products/women/bags' }
+    ],
+    women: [
+      { name: 'CLOTHES', path: '/products/men/clothes' },
+      { name: 'SHOES', path: '/products/men/shoes' },
+      { name: 'BAGS AND ACCESSORIES', path: '/products/men/bags' }
+    ]
+  }
   const [navbarState, setNavbarState] = useState(false)
   const history = useHistory()
   const { removeFilters } = useFilter()
@@ -30,44 +43,24 @@ const NavBar = ({ onModalOpen }) => {
           <div className='d-flex flex-column d-flex w-100 justify-content-between bg-dark p-2'>
             <h5 className='text-white h4'>WOMAN</h5>
             <Divider />
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/women/clothes')}
-            >
-              CLOTHES
-            </h6>
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/women/shoes')}
-            >
-              SHOES
-            </h6>
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/women/bags')}
-            >
-              BAGS AND ACCESSORIES
-            </h6>
+            {categories.men.map((e) => (
+              <NH
+                handleCategoryClick={handleCategoryClick}
+                name={e.name}
+                path={e.path}
+                key={e.path}
+              />
+            ))}
             <h5 className='text-white h4'>MEN</h5>
             <Divider />
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/men/clothes')}
-            >
-              CLOTHES
-            </h6>
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/men/shoes')}
-            >
-              SHOES
-            </h6>
-            <h6
-              className='text-muted'
-              onClick={() => handleCategoryClick('/products/men/bags')}
-            >
-              BAGS AND ACCESSORIES
-            </h6>
+            {categories.women.map((e) => (
+              <NH
+                handleCategoryClick={handleCategoryClick}
+                name={e.name}
+                path={e.path}
+                key={e.path}
+              />
+            ))}
           </div>
         )}
         <div className='container-fluid'>
