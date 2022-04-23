@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import productsService from '../services/products.service'
-import _ from 'lodash'
 const productsSlice = createSlice({
   name: 'products',
   initialState: {

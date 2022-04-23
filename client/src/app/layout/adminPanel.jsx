@@ -1,22 +1,47 @@
-import React, { useEffect } from 'react'
-import AdminForm from '../components/ui/adminForm'
-import AdminList from '../components/ui/adminList'
+import React, { useEffect, useState } from 'react'
+import AdminList from '../components/ui/admin/adminList'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCurrentUserId, loadUser } from '../store/users'
+import { getAllProducts, loadProducts } from '../store/products'
+import { usePaginate } from '../hooks/usePaginate'
+import UpdateForm from '../components/ui/admin/updateForm'
+import CreateForm from '../components/ui/admin/createForm'
 const AdminPanel = () => {
+  const [selectedProduct, setSelectedProduct] = useState()
   const dispatch = useDispatch()
-  const currentUserId = useSelector(getCurrentUserId())
+  const products = useSelector(getAllProducts())
+  const productsCount = products ? products.length : 0
+  const { paginateProducts } = usePaginate()
   useEffect(() => {
-    dispatch(loadUser(currentUserId))
+    dispatch(loadProducts())
   })
+  const addToForm = (id) => {
+    setSelectedProduct(id)
+  }
+  const resetForm = () => {
+    setSelectedProduct()
+  }
+  const productsCrop = paginateProducts(products)
   return (
     <div className='container-fluid'>
       <div className='row'>
-        <div className='col-2 border my-2 px-1'>
-          <AdminForm />
-        </div>
+        {selectedProduct ? (
+          <div className='col-2 border my-2 px-1'>
+            <UpdateForm
+              selectedProduct={selectedProduct}
+              resetForm={resetForm}
+            />
+          </div>
+        ) : (
+          <div className='col-2 border my-2 px-1'>
+            <CreateForm />
+          </div>
+        )}
         <div className='col-10 my-2'>
-          <AdminList />
+          <AdminList
+            addToForm={addToForm}
+            productsCount={productsCount}
+            products={productsCrop}
+          />
         </div>
       </div>
     </div>

@@ -104,7 +104,7 @@ router.post('/signInWithPassword', [
 ])
 
 function isTokenInvalid(data, dbToken) {
-  return !data || !dbToken || data._id !== dbToken?.user?.toString()
+  return !data || !dbToken || data.id !== dbToken?.user?.toString()
 }
 
 router.post('/token', async (req, res) => {
@@ -112,7 +112,6 @@ router.post('/token', async (req, res) => {
     const { refresh_token: refreshToken } = req.body
     const data = tokenService.validateRefresh(refreshToken)
     const dbToken = await tokenService.findToken(refreshToken)
-
     if (isTokenInvalid(data, dbToken)) {
       return res.status(401).json({
         message: 'Unauthorised'

@@ -2,10 +2,10 @@
   width: 2%;
 }
 .col2 {
-  width: 78%;
+  width: 68%;
 }
 .col3 {
-  width: 10%;
+  width: 20%;
 }
 .col4 {
   width: 10%;
@@ -18,9 +18,4 @@
 }
 .admin-row {
   font-size: smaller;
-}
-.admin-img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }

@@ -22,20 +22,23 @@ function App() {
     <>
       <div className='container-fluid d-flex flex-column justify-content-between'>
         <FilterProvider>
-          <NavBar onModalOpen={toggleModalWindow} />
-          <Switch>
-            <PaginateProvider>
+          <PaginateProvider>
+            <NavBar onModalOpen={toggleModalWindow} />
+            <Switch>
               <Route path='/admin' component={AdminPanel} />
-            </PaginateProvider>
-            <Route
-              path='/products/:sex?/:category?/:type?'
-              component={ProductsPage}
-            />
-            <Route path='/product/:productId?/:edit?' component={ProductPage} />
-            <Route path='/login/:type?' component={Login} />
-            <Route path='/' exact component={Main} />
-            <Redirect to='/' />
-          </Switch>
+              <Route
+                path='/products/:sex?/:category?/:type?'
+                component={ProductsPage}
+              />
+              <Route
+                path='/product/:productId?/:edit?'
+                component={ProductPage}
+              />
+              <Route path='/login/:type?' component={Login} />
+              <Route path='/' exact component={Main} />
+              <Redirect to='/' />
+            </Switch>
+          </PaginateProvider>
         </FilterProvider>
 
         <Footer />

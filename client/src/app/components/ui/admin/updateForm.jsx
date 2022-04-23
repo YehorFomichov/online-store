@@ -1,28 +1,26 @@
 import React, { useState } from 'react'
-import httpService from '../../services/http.service'
-import InputForm from '../common/form/inputForm'
-import RadioField from '../common/form/radioField'
-import SelectField from '../common/form/selectField'
-import { nanoid } from 'nanoid'
-import calculateCategory from '../../utils/calculateCategory'
-const AdminForm = () => {
+// import httpService from '../../services/http.service'
+import InputForm from '../../common/form/inputForm'
+import RadioField from '../../common/form/radioField'
+import SelectField from '../../common/form/selectField'
+import calculateCategory from '../../../utils/calculateCategory'
+const UpdateForm = ({ selectedProduct, resetForm }) => {
   const [data, setData] = useState({
-    sex: '',
-    category: '',
-    type: '',
-    image: '',
-    title: '',
-    price: '',
-    rating: ''
+    sex: selectedProduct.sex,
+    category: selectedProduct.category,
+    type: selectedProduct.type,
+    image: selectedProduct.image,
+    title: selectedProduct.title,
+    price: selectedProduct.price,
+    rating: selectedProduct.rating
   })
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const _id = nanoid()
-    const resp = await httpService.put(
-      `products/${data.sex}/${data.category}/${data.type}/${_id}`,
-      data
-    )
-    console.log(resp)
+    // const resp = await httpService.post(
+    //   `products/${data.sex}/${data.category}/${data.type}/${_id}`,
+    //   data
+    // )
+    // console.log(resp)
     setData((prevState) => ({ ...prevState, image: '' }))
   }
 
@@ -84,11 +82,21 @@ const AdminForm = () => {
         value={data.image}
         onChange={handleChange}
       />
-      <button type='submit' className='btn btn-primary my-2'>
-        Submit
-      </button>
+      {selectedProduct === null ? (
+        <button type='submit' className='btn btn-primary my-2'>
+          Add item
+        </button>
+      ) : (
+        <>
+          <button className='btn btn-primary my-2'>Update item</button>
+          <button className='btn btn-secondary m-2' onClick={resetForm}>
+            Reset
+          </button>
+          <div className='text-warning'>{selectedProduct._id}</div>
+        </>
+      )}
     </form>
   )
 }
 
-export default AdminForm
+export default UpdateForm
