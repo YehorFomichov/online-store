@@ -13,7 +13,7 @@ const AdminPanel = () => {
   const { paginateProducts } = usePaginate()
   useEffect(() => {
     dispatch(loadProducts())
-  })
+  }, [])
   const addToForm = (id) => {
     setSelectedProduct(id)
   }

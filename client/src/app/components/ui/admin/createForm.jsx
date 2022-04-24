@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-// import httpService from '../../services/http.service'
 import InputForm from '../../common/form/inputForm'
 import RadioField from '../../common/form/radioField'
 import SelectField from '../../common/form/selectField'
 import calculateCategory from '../../../utils/calculateCategory'
+import productsService from '../../../services/products.service'
+import { nanoid } from '@reduxjs/toolkit'
 const CreateForm = () => {
-  const [data, setData] = useState({
+  const initialState = {
     sex: '',
     category: '',
     type: '',
@@ -13,15 +14,13 @@ const CreateForm = () => {
     title: '',
     price: '',
     rating: ''
-  })
+  }
+  const [data, setData] = useState(initialState)
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const resp = await httpService.post(
-    //   `products/${data.sex}/${data.category}/${data.type}/${_id}`,
-    //   data
-    // )
-    // console.log(resp)
-    setData((prevState) => ({ ...prevState, image: '' }))
+    const resp = await productsService.create({ ...data })
+    console.log(resp)
+    setData(initialState)
   }
 
   const handleChange = (target) => {

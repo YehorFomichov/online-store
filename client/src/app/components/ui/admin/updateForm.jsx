@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-// import httpService from '../../services/http.service'
 import InputForm from '../../common/form/inputForm'
 import RadioField from '../../common/form/radioField'
 import SelectField from '../../common/form/selectField'
 import calculateCategory from '../../../utils/calculateCategory'
+import productsService from '../../../services/products.service'
 const UpdateForm = ({ selectedProduct, resetForm }) => {
   const [data, setData] = useState({
     sex: selectedProduct.sex,
@@ -16,11 +16,8 @@ const UpdateForm = ({ selectedProduct, resetForm }) => {
   })
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const resp = await httpService.post(
-    //   `products/${data.sex}/${data.category}/${data.type}/${_id}`,
-    //   data
-    // )
-    // console.log(resp)
+    const resp = await productsService.update(selectedProduct._id, data)
+    console.log(resp)
     setData((prevState) => ({ ...prevState, image: '' }))
   }
 

@@ -42,14 +42,13 @@ const AdminList = ({ products, productsCount, addToForm }) => {
                 </td>
                 <td>
                   <div className='d-flex flex-row'>
-                    <i
-                      className='bi bi-download px-2'
-                      onClick={() => addToForm(product)}
-                    ></i>
                     <a className='text-white' href={product.image}>
                       <i className='bi bi-card-image text-black px-2'></i>
                     </a>
-                    <i className='bi bi-brush text-warning px-2'></i>
+                    <i
+                      className='bi bi-brush text-warning px-2'
+                      onClick={() => addToForm(product)}
+                    ></i>
                     <i className='bi bi-file-earmark-x-fill text-danger px-2'></i>
                   </div>
                 </td>

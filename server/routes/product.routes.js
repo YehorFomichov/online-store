@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     res.status(200).send(list)
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })
@@ -19,7 +19,7 @@ router.get('/:productId', async (req, res) => {
     res.status(200).send(product)
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })
@@ -27,8 +27,7 @@ router.get('/:productId', async (req, res) => {
 router.patch('/:productId', auth, async (req, res) => {
   try {
     const { productId } = req.params
-
-    if (productId && req.user._id) {
+    if (productId && req.user.id) {
       const updatedProduct = await Product.findByIdAndUpdate(
         productId,
         req.body,
@@ -42,25 +41,18 @@ router.patch('/:productId', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })
 router.post('/', auth, async (req, res) => {
   try {
-    const { category, image, price, rating, sex, title, type } = req.body
-    if (req.user._id) {
-      const updatedProduct = await Product.create({
-        category,
-        image,
-        price,
-        rating,
-        sex,
-        title,
-        type
-      })
+    const payload = req.body
+
+    if (req.user.id) {
+      const newProduct = await Product.create(payload)
       res.status(201).send({
-        updatedProduct
+        newProduct
       })
     } else {
       res.status(401).json({
@@ -69,7 +61,7 @@ router.post('/', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })

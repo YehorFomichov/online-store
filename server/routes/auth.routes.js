@@ -47,7 +47,7 @@ router.post('/signUp', [
       })
     } catch (error) {
       res.status(500).json({
-        message: 'SERVER_ERROR'
+        message: 'Server error'
       })
     }
   }
@@ -97,7 +97,7 @@ router.post('/signInWithPassword', [
       })
     } catch (error) {
       res.status(500).json({
-        message: 'На сервере произошла ошибка'
+        message: 'Server error'
       })
     }
   }
@@ -124,7 +124,7 @@ router.post('/token', async (req, res) => {
     res.status(200).send({ ...tokens, userId: data._id })
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })

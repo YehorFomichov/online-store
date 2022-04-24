@@ -12,7 +12,7 @@ router.get('/:userId', async (req, res) => {
     res.status(200).send(cart)
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка'
+      message: 'Server error'
     })
   }
 })
