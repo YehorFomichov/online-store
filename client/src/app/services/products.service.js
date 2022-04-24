@@ -1,5 +1,5 @@
 import httpService from './http.service'
-const productEndPoint = 'product/'
+const productEndPoint = '/product'
 
 const productsService = {
   get: async () => {
