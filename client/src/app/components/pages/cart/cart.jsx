@@ -47,11 +47,14 @@ function Cart({ onModalOpen }) {
   }
   const currentUserId = useSelector(getCurrentUserId())
   const handleOrder = () => {
-    if (!currentUserId) {
+    if (currentUserId === '') {
       toast.dark('Please login to continue')
       history.push('/login')
+      onModalOpen()
+    } else {
+      dispatch(orderEverything(currentUserId, cart))
+      onModalOpen()
     }
-    dispatch(orderEverything(currentUserId, cart))
   }
   const handleRedirect = (id) => {
     history.push(`/product/${id}`)

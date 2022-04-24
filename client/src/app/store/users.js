@@ -127,7 +127,12 @@ export const getIsAdmin = () => (state) => {
   if (!state.users.entities) return false
   return state.users.entities.isAdmin
 }
-export const getCurrentUserId = () => (state) => state.users.auth.userId
+export const getCurrentUserId = () => (state) => {
+  if (!state.users.auth) {
+    return ''
+  }
+  return state.users.auth.userId
+}
 export const getAuthError = () => (state) => state.users.error
 export const getCurrentUser = () => (state) => state.users.entities
 
