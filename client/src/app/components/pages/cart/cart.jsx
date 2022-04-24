@@ -11,6 +11,7 @@ import {
 import { getCurrentUserId } from '../../../store/users'
 import './cart.css'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function Cart({ onModalOpen }) {
   const [locationKeys, setLocationKeys] = useState([])
@@ -46,6 +47,10 @@ function Cart({ onModalOpen }) {
   }
   const currentUserId = useSelector(getCurrentUserId())
   const handleOrder = () => {
+    if (!currentUserId) {
+      toast.dark('Please login to continue')
+      history.push('/login')
+    }
     dispatch(orderEverything(currentUserId, cart))
   }
   const handleRedirect = (id) => {
