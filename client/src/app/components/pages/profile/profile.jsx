@@ -2,7 +2,12 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getOrders, loadOrdersByUserId } from '../../../store/cart'
-import { getCurrentUserId, logOut } from '../../../store/users'
+import {
+  getCurrentUserId,
+  getIsAdmin,
+  loadUser,
+  logOut
+} from '../../../store/users'
 import { displayDate } from '../../../utils/displayDate'
 
 const Profile = () => {
@@ -12,7 +17,9 @@ const Profile = () => {
   const currentOrders = useSelector(getOrders())
   useEffect(() => {
     dispatch(loadOrdersByUserId(currentUserId))
+    dispatch(loadUser(currentUserId))
   }, [])
+  const isAdmin = useSelector(getIsAdmin())
   const handleLogOut = () => {
     dispatch(logOut())
     history.goBack()
@@ -47,7 +54,15 @@ const Profile = () => {
         </tbody>
       </table>
       <div className='row'>
-        <button className='btn btn-light' onClick={handleLogOut}>
+        {isAdmin && (
+          <button
+            className='btn btn-light m-2'
+            onClick={() => history.push('/admin')}
+          >
+            Admin Page
+          </button>
+        )}
+        <button className='btn btn-light m-2' onClick={handleLogOut}>
           LogOut
         </button>
       </div>

@@ -39,7 +39,11 @@ const Login = () => {
               <LoginForm />
               <p>
                 Dont have account?{' '}
-                <a role='button' onClick={toggleFormType}>
+                <a
+                  role='button'
+                  className='text-warning'
+                  onClick={toggleFormType}
+                >
                   {' '}
                   Sign Up
                 </a>

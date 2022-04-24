@@ -13,6 +13,7 @@ import FilterProvider from './hooks/useFilter'
 import Cart from './components/pages/cart/cart'
 import ProductsPage from './components/pages/productsPage/productsPage'
 import PaginateProvider from './hooks/usePaginate'
+import ProtectedRoute from './components/ui/admin/protectedRoute'
 function App() {
   const [modalState, setModalState] = useState(false)
   const toggleModalWindow = () => {
@@ -25,7 +26,7 @@ function App() {
           <PaginateProvider>
             <NavBar onModalOpen={toggleModalWindow} />
             <Switch>
-              <Route path='/admin' component={AdminPanel} />
+              <ProtectedRoute path='/admin' component={AdminPanel} />
               <Route
                 path='/products/:sex?/:category?/:type?'
                 component={ProductsPage}
@@ -40,7 +41,6 @@ function App() {
             </Switch>
           </PaginateProvider>
         </FilterProvider>
-
         <Footer />
       </div>
       {modalState && <Cart onModalOpen={toggleModalWindow} />}

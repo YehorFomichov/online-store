@@ -110,10 +110,10 @@ const LoginForm = () => {
         Login
       </button>
       <button
-        className='btn btn-outline-success w-100 my-2 mx-auto'
+        className='btn btn-outline-warning w-100 my-2 mx-auto'
         onClick={handleDemoLogin}
       >
-        Demo Login
+        Demo Admin
       </button>
     </form>
   )

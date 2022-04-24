@@ -4,6 +4,7 @@ import localStorageService from '../services/localStorage.service'
 import history from '../utils/history'
 import generateAuthError from '../utils/generateAuthError'
 import userService from '../services/user.service'
+import { toast } from 'react-toastify'
 const initialState = localStorageService.getAccessToken()
   ? {
       entities: null,
@@ -55,6 +56,10 @@ const usersSlice = createSlice({
     userLoadingFailed: (state, action) => {
       state.isLoading = false
       state.error = action.payload
+    },
+    errorOccured: (state, action) => {
+      state.isLoading = false
+      state.error = action.payload
     }
   }
 })
@@ -67,7 +72,8 @@ const {
   authRequested,
   userRequested,
   userLoaded,
-  userLoadingFailed
+  userLoadingFailed,
+  errorOccured
 } = usersSlice.actions
 
 export const loadUser = (id) => async (dispatch) => {
@@ -87,11 +93,11 @@ export const logIn =
     dispatch(authRequested())
     try {
       const data = await authService.logIn({ email, password })
-      console.log(data)
       dispatch(authRequestSuccess({ userId: data.userId }))
       localStorageService.setTokens(data)
       history.push(redirect)
     } catch (error) {
+      toast.dark('Email or password is incorrect')
       const { code, message } = error.response.data.error
       if (code === 400) {
         const errorMessage = generateAuthError(message)
@@ -117,6 +123,10 @@ export const signUp = (payload) => async (dispatch) => {
 }
 
 export const getIsLoggedIn = () => (state) => state.users.isLoggedIn
+export const getIsAdmin = () => (state) => {
+  if (!state.users.entities) return false
+  return state.users.entities.isAdmin
+}
 export const getCurrentUserId = () => (state) => state.users.auth.userId
 export const getAuthError = () => (state) => state.users.error
 export const getCurrentUser = () => (state) => state.users.entities
