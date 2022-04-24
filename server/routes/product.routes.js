@@ -27,7 +27,7 @@ router.get('/:productId', async (req, res) => {
 router.patch('/:productId', auth, async (req, res) => {
   try {
     const { productId } = req.params
-    if (productId && req.user.id) {
+    if (productId && (req.user.id || req.user._id)) {
       const updatedProduct = await Product.findByIdAndUpdate(
         productId,
         req.body,
@@ -49,7 +49,7 @@ router.post('/', auth, async (req, res) => {
   try {
     const payload = req.body
 
-    if (req.user.id) {
+    if (req.user.id || req.user._id) {
       const newProduct = await Product.create(payload)
       res.status(201).send({
         newProduct
@@ -65,5 +65,23 @@ router.post('/', auth, async (req, res) => {
     })
   }
 })
-
+router.delete('/:productId', auth, async (req, res) => {
+  try {
+    const { productId } = req.params
+    if (req.user.id || req.user._id) {
+      const newProduct = await Product.findByIdAndDelete(productId)
+      res.status(201).send({
+        newProduct
+      })
+    } else {
+      res.status(401).json({
+        message: 'UNAUTHORISED'
+      })
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: 'Server error'
+    })
+  }
+})
 module.exports = router

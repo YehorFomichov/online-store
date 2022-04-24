@@ -19,7 +19,6 @@ const CreateForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const resp = await productsService.create({ ...data })
-    console.log(resp)
     setData(initialState)
   }
 

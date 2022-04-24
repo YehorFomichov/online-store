@@ -2,7 +2,7 @@ import React from 'react'
 import './adminList.css'
 import Pagination from '../../common/pagination'
 import { usePaginate } from '../../../hooks/usePaginate'
-const AdminList = ({ products, productsCount, addToForm }) => {
+const AdminList = ({ products, productsCount, addToForm, onRemoveItem }) => {
   const { pageSize, currentPage, handlePageChange } = usePaginate()
   return (
     <div>
@@ -49,7 +49,10 @@ const AdminList = ({ products, productsCount, addToForm }) => {
                       className='bi bi-brush text-warning px-2'
                       onClick={() => addToForm(product)}
                     ></i>
-                    <i className='bi bi-file-earmark-x-fill text-danger px-2'></i>
+                    <i
+                      className='bi bi-file-earmark-x-fill text-danger px-2'
+                      onClick={() => onRemoveItem(product._id)}
+                    ></i>
                   </div>
                 </td>
               </tr>

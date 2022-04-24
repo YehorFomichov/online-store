@@ -17,7 +17,6 @@ const UpdateForm = ({ selectedProduct, resetForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const resp = await productsService.update(selectedProduct._id, data)
-    console.log(resp)
     setData((prevState) => ({ ...prevState, image: '' }))
   }
 
